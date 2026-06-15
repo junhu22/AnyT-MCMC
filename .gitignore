@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.npy
+*.npz
+*.pt
+*.pdf
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
