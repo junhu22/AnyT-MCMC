@@ -10,5 +10,5 @@ __pycache__/
 dist/
 build/
 
-# Sailboat log-weight residuals (non-identifying) kept for reproducibility
-!experiments/data/cert_weights_sailboat.npy
+# Processed log-weight residuals kept for reproducibility (see experiments/README.md)
+!experiments/data/*.npy

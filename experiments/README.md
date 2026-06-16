@@ -7,7 +7,10 @@ To reproduce from scratch, you need:
 1. Trained normalizing flow checkpoints (from CerT-MCMC)
 2. Target density definitions
 
-The log-weight files used in the paper will be made available upon acceptance.
+The processed, non-identifying log-weight residuals used in the paper are
+bundled in `experiments/data/` (see *Included data* below), so Figures 1, 3,
+and 4 reproduce directly by running the scripts in this directory; the flow
+checkpoints above are only needed to regenerate the residuals from scratch.
 
 For the calibration experiment (Figure 6), the script generates fresh samples
 from the trained flow and does not require pre-computed weights.
@@ -16,8 +19,8 @@ from the trained flow and does not require pre-computed weights.
 
 By default each script reads/writes relative to this `experiments/` directory:
 
-- Pre-computed weights are loaded from `experiments/data/` — place the
-  `cert_weights_*.npy` files there.
+- Pre-computed log-weight residuals are loaded from `experiments/data/`; the
+  nine `cert_weights_*.npy` files used in the paper are already bundled there.
 - Figures are written to `experiments/figures/`.
 
 These can be overridden with environment variables:
@@ -36,3 +39,17 @@ These can be overridden with environment variables:
 | `logistic_regression.py` | Fig. 3 | `cert_weights_logreg_{synth20,breastcancer}.npy` |
 | `sailboat_shm.py` | Fig. 4 | `cert_weights_sailboat.npy` |
 | `calibration_experiment.py` | Fig. 6 | flow checkpoint `flow_D20.pt` (no `.npy`) |
+
+### Included data
+
+The processed log-weight residuals (`float64` NumPy arrays) live in
+`experiments/data/`:
+
+| File(s) | Posterior | Figure |
+|---|---|---|
+| `cert_weights_banana_d{2,5,6,8,10,20}.npy` | banana targets, D = 2–20 | Fig. 1 |
+| `cert_weights_logreg_{synth20,breastcancer}.npy` | Bayesian logistic regression | Fig. 3 |
+| `cert_weights_sailboat.npy` | sailboat structural health monitoring | Fig. 4 |
+
+The sailboat residuals are de-identified (no building geometry, location, or
+dimensions); the underlying raw typhoon monitoring data are access-restricted.
