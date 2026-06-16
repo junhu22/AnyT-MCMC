@@ -1,5 +1,5 @@
 # Reproduces Figure 1 from:
-#   "Safe sequential certification of transport Monte Carlo" (Hu, 2025)
+#   "Safe sequential certification of transport Monte Carlo" (Hu, 2026)
 # (outputs: fig1_oscillation_logr.pdf, fig2_price_logr.pdf)
 
 """
