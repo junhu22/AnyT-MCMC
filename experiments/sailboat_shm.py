@@ -130,7 +130,7 @@ for rho in RHO_LIST:
 ax.set_xscale("log")
 ax.set_xlim(500, n_max * 1.1)
 ax.set_ylim(0, 1.05)
-ax.text(0.06, 0.92, f"Sailboat building\n$D=6$, ESS={ess_pct:.0f}%",
+ax.text(0.06, 0.92, f"Sailboat building\n$D=6$, nESS={ess_pct:.0f}%",
         transform=ax.transAxes, fontsize=8, va="top")
 ax.set_xlabel("Sample size $n$")
 ax.set_ylabel(r"$\gamma$")

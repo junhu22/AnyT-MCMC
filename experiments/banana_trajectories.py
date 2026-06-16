@@ -191,7 +191,7 @@ def main():
 
         ax.set_xscale("log")
         ax.set_ylim(-0.05, 1.05)
-        ax.set_title(f"D={D}  (ESS={ess_pct:.1f}%, osc={osc:.1f})", fontsize=11)
+        ax.set_title(f"D={D}  (nESS={ess_pct:.1f}%, osc={osc:.1f})", fontsize=11)
         if i >= 3:
             ax.set_xlabel("n", fontsize=11)
         if i % 3 == 0:

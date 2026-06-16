@@ -341,11 +341,11 @@ def main():
                label=rf'Nominal $\alpha = {ALPHA}$', zorder=2)
 
     ax.set_xlabel('Number of checkpoints $k$')
-    ax.set_ylabel('False certification rate')
+    ax.set_ylabel('Boundary-exceedance rate')
     ax.set_xticks(k_list)
     ymax = max(rates_B) * 1.15
     ax.set_ylim(-0.02, ymax)
-    ax.legend(fontsize=6.5, loc='center right')
+    ax.legend(fontsize=6.0, loc='upper right', bbox_to_anchor=(1.0, 0.52))
     ax.tick_params(which='both', direction='in')
 
     ax.text(0.03, 0.97,

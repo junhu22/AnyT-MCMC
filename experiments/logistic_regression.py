@@ -38,7 +38,7 @@ RHO_LIST = [0.05, 0.10]
 
 DATASETS = [
     {"file": "cert_weights_logreg_synth20.npy",
-     "name": "Synthetic LogReg", "short": "synth20", "p": 20,
+     "name": "Logistic regression", "short": "synth20", "p": 20,
      "n_obs": 500, "color05": "#0072B2", "color10": "#56B4E9"},
     {"file": "cert_weights_logreg_breastcancer.npy",
      "name": "Breast Cancer", "short": "bc30", "p": 30,
@@ -171,14 +171,14 @@ for j, ds in enumerate(valid_datasets):
     ax.set_ylim(0, 1.05)
     ax.text(0.06, 0.92, f"{ds['name']}\n$p={ds['p']}$",
             transform=ax.transAxes, fontsize=8, va="top")
-    ax.text(0.94, 0.08, f"ESS={ds['ess_pct']:.0f}%",
+    ax.text(0.94, 0.08, f"nESS={ds['ess_pct']:.0f}%",
             transform=ax.transAxes, fontsize=7, ha="right", va="bottom",
             bbox=dict(boxstyle="round,pad=0.2", fc="white", ec="0.7", lw=0.4))
     ax.set_xlabel("Sample size $n$")
     if j == 0:
         ax.set_ylabel(r"$\gamma$")
     ax.tick_params(which="both", direction="in")
-    ax.legend(fontsize=6, loc="lower right", handlelength=1.5)
+    ax.legend(fontsize=6, loc="upper right", handlelength=1.5)
 
 fig.tight_layout(w_pad=0.5)
 fig.savefig(FIG_DIR / "fig4_logreg.pdf", dpi=300, bbox_inches="tight")
