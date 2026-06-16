@@ -8,7 +8,7 @@ with normalizing-flow proposals.
 This package implements the anytime oscillation certificate from:
 
 > **Safe sequential certification of transport Monte Carlo**  
-> Jun Hu (2025)  
+> Jun Hu (2026)  
 > Submitted to *Bayesian Analysis*
 
 The running certificate $\underline{\gamma}^{\mathrm{run}}(n)$ is valid at every 
@@ -56,7 +56,7 @@ in the paper:
 @article{hu2025anyt,
   author = {Hu, Jun},
   title = {Safe sequential certification of transport {M}onte {C}arlo},
-  year = {2025},
+  year = {2026},
   note = {Submitted to Bayesian Analysis}
 }
 ```
