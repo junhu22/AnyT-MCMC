@@ -27,9 +27,9 @@ These can be overridden with environment variables:
 
 | Variable | Used by | Default |
 |---|---|---|
-| `ANYT_DATA_DIR` | banana, logreg, sailboat | `experiments/data` |
-| `ANYT_FIG_DIR`  | all four scripts | `experiments/figures` |
-| `CERT_MCMC_DIR` | calibration | `experiments/checkpoints` |
+| `ANYT_DATA_DIR` | banana, logreg, sailboat, posterior_stability | `experiments/data` |
+| `ANYT_FIG_DIR`  | the four figure scripts | `experiments/figures` |
+| `CERT_MCMC_DIR` | calibration, posterior_stability | `experiments/checkpoints` |
 
 ### Script ↔ figure map
 
@@ -39,6 +39,16 @@ These can be overridden with environment variables:
 | `logistic_regression.py` | Fig. 3 | `cert_weights_logreg_{synth20,breastcancer}.npy` |
 | `sailboat_shm.py` | Fig. 4 | `cert_weights_sailboat.npy` |
 | `calibration_experiment.py` | Fig. 6 | flow checkpoint `flow_D20.pt` (no `.npy`) |
+| `posterior_stability.py` | Section 5.5: posterior summary stability at certified stopping time | flow checkpoints `flow_logreg_D20.pt`, `flow_sailboat.pt` + `cert_weights_{logreg_synth20,sailboat}.npy` |
+
+`posterior_stability.py` uses **Method B**: because the bundled `.npy` files
+hold only log-weights, it reloads the trained NF checkpoints to regenerate
+matched `(theta, log_r)` pairs (same seed/batch order, verified against the
+bundled arrays), then compares importance-weighted posterior summaries at the
+certified stopping time `tau` against the full budget. It therefore needs the
+logistic and sailboat NF checkpoints (`flow_logreg_D20.pt`, `flow_sailboat.pt`),
+which are **not shipped in this repo** — point `CERT_MCMC_DIR` at the checkpoint
+location (see paper "Code availability"), as with the calibration experiment.
 
 ### Included data
 
